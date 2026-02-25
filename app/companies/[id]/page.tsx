@@ -2,21 +2,27 @@
 
 import { companies } from "../../../data/companies";
 
-import { useState, useEffect } from "react";
-
 import { useParams } from "next/navigation";
+
+import { useState } from "react";
 
 export default function CompanyPage(){
 
   const params = useParams();
 
   const company = companies.find(
+
     c => c.id === params.id
+
   );
 
   const [summary,setSummary] = useState("");
 
+  const [loading,setLoading] = useState(false);
+
   async function enrich(){
+
+    setLoading(true);
 
     const res = await fetch("/api/enrich",{
 
@@ -27,7 +33,9 @@ export default function CompanyPage(){
       },
 
       body: JSON.stringify({
+
         website: company?.website
+
       })
 
     });
@@ -36,21 +44,71 @@ export default function CompanyPage(){
 
     setSummary(data.summary);
 
+    setLoading(false);
+
   }
 
   return(
 
-    <div style={{padding:"20px"}}>
+    <div className="container">
 
-      <h2>{company?.name}</h2>
+      <h1 className="title">
 
-      <button onClick={enrich}>
+        {company?.name}
 
-        Enrich
+      </h1>
+
+      <p style={{color:"#94a3b8"}}>
+
+        {company?.website}
+
+      </p>
+
+      <button
+
+        onClick={enrich}
+
+        className="button"
+
+      >
+
+        {
+
+          loading
+
+          ?
+
+          "Analyzing..."
+
+          :
+
+          "Generate VC Intelligence"
+
+        }
 
       </button>
 
-      <p>{summary}</p>
+      {
+
+        summary &&
+
+        <div className="card">
+
+          <h3>
+
+            VC Insight
+
+          </h3>
+
+          <p>
+
+            {summary}
+
+          </p>
+
+        </div>
+
+      }
 
     </div>
 

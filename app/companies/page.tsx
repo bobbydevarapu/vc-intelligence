@@ -1,30 +1,51 @@
-"use client";
-
 import Link from "next/link";
-
 import { companies } from "../../data/companies";
 
-export default function CompaniesPage() {
+export default function Companies() {
 
   return (
 
-    <div style={{padding:"20px"}}>
+    <div className="container">
 
-      <h2>Companies</h2>
+      <h1 className="title">
+
+        Startup Database
+
+      </h1>
+
+      <p style={{color:"#94a3b8"}}>
+
+        Click a company to generate VC intelligence
+
+      </p>
 
       {
 
         companies.map(company => (
 
-          <div key={company.id}>
+          <Link
+            key={company.id}
+            href={`/companies/${company.id}`}
+            className="link"
+          >
 
-            <Link href={`/companies/${company.id}`}>
+            <div className="card">
 
-              {company.name}
+              <h2>
 
-            </Link>
+                {company.name}
 
-          </div>
+              </h2>
+
+              <p style={{color:"#94a3b8"}}>
+
+                {company.website}
+
+              </p>
+
+            </div>
+
+          </Link>
 
         ))
 
