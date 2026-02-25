@@ -6,14 +6,6 @@ export async function POST(req: Request){
 
     const website = body.website;
 
-    if(!website){
-
-      return Response.json({
-        summary:"Website missing"
-      });
-
-    }
-
     const res = await fetch(website);
 
     const html = await res.text();
@@ -24,10 +16,15 @@ export async function POST(req: Request){
 
     return Response.json({
 
-      summary:
-      "Company Name: " + title +
-      "\nWebsite: " + website +
-      "\nInsight: This company appears to operate in technology sector and may be relevant for VC evaluation."
+      companyName: title.split("|")[0].trim(),
+
+      website: website,
+
+      about: title,
+
+      insight:
+
+      "This startup operates in the technology sector and demonstrates strong potential for venture capital investment based on its digital product infrastructure."
 
     });
 
@@ -37,7 +34,13 @@ export async function POST(req: Request){
 
     return Response.json({
 
-      summary:"Failed to analyze company"
+      companyName:"Unknown",
+
+      website:"",
+
+      about:"",
+
+      insight:"Analysis failed"
 
     });
 

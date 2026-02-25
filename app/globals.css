@@ -1,81 +1,291 @@
-body {
+/* RESET */
 
-  background: #0f172a;
+* {
 
-  color: #e2e8f0;
+  box-sizing: border-box;
 
-  font-family: system-ui, sans-serif;
+  padding: 0;
 
   margin: 0;
 
 }
 
+
+
+/* BODY */
+
+body {
+
+  margin: 0;
+
+  font-family:
+
+  system-ui,
+
+  -apple-system,
+
+  BlinkMacSystemFont,
+
+  "Segoe UI",
+
+  Roboto,
+
+  Oxygen,
+
+  Ubuntu,
+
+  Cantarell,
+
+  sans-serif;
+
+
+
+  background: linear-gradient(135deg,#0f172a,#020617);
+
+  color: white;
+
+  min-height: 100vh;
+
+}
+
+
+
+/* CONTAINER */
+
 .container {
 
-  max-width: 900px;
+  max-width: 1000px;
 
   margin: auto;
 
-  padding: 40px;
+  padding: 60px 20px;
 
 }
 
-.card {
 
-  background: #1e293b;
 
-  padding: 20px;
-
-  margin-top: 15px;
-
-  border-radius: 10px;
-
-  transition: 0.3s;
-
-}
-
-.card:hover {
-
-  background: #334155;
-
-}
-
-.button {
-
-  background: #3b82f6;
-
-  border: none;
-
-  padding: 10px 20px;
-
-  color: white;
-
-  border-radius: 6px;
-
-  cursor: pointer;
-
-  margin-top: 10px;
-
-}
-
-.button:hover {
-
-  background: #2563eb;
-
-}
+/* TITLES */
 
 .title {
 
-  font-size: 28px;
+  font-size: 42px;
 
-  font-weight: bold;
+  font-weight: 700;
+
+  margin-bottom: 10px;
 
 }
 
-.link {
+
+
+.subtitle {
+
+  color: #94a3b8;
+
+  margin-bottom: 40px;
+
+  font-size: 18px;
+
+}
+
+
+
+/* BUTTON */
+
+.button {
+
+  background: linear-gradient(135deg,#2563eb,#1d4ed8);
+
+  border: none;
+
+  padding: 12px 24px;
+
+  border-radius: 10px;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+
+}
+
+
+
+.button:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 20px rgba(37,99,235,0.3);
+
+}
+
+
+
+/* CARD */
+
+.card {
+
+  margin-top: 25px;
+
+  padding: 25px;
+
+  border-radius: 14px;
+
+  background: rgba(30,41,59,0.7);
+
+  backdrop-filter: blur(12px);
+
+
+
+  box-shadow:
+
+  0 0 0 1px rgba(255,255,255,0.05),
+
+  0 15px 35px rgba(0,0,0,0.6);
+
+
+
+  transition: all 0.25s ease;
+
+}
+
+
+
+/* CARD HOVER */
+
+.card:hover {
+
+  transform: translateY(-5px);
+
+  box-shadow:
+
+  0 0 0 1px rgba(255,255,255,0.1),
+
+  0 20px 40px rgba(0,0,0,0.7);
+
+}
+
+
+
+/* CARD TITLE */
+
+.card-title {
+
+  font-size: 24px;
+
+  margin-bottom: 20px;
+
+}
+
+
+
+/* COMPANY LINK */
+
+.card a {
+
+  color: white;
 
   text-decoration: none;
 
-  color: white;
+  font-weight: 600;
+
+  font-size: 22px;
+
+}
+
+
+
+.card a:hover {
+
+  color: #60a5fa;
+
+}
+
+
+
+/* FIELD */
+
+.field {
+
+  margin-bottom: 18px;
+
+}
+
+
+
+/* LABEL */
+
+.label {
+
+  color: #94a3b8;
+
+  font-size: 14px;
+
+}
+
+
+
+/* VALUE */
+
+.value {
+
+  font-size: 16px;
+
+  margin-top: 6px;
+
+  line-height: 1.6;
+
+}
+
+
+
+/* INSIGHT BOX */
+
+.insight {
+
+  margin-top: 20px;
+
+  padding: 18px;
+
+  border-radius: 10px;
+
+  background: rgba(15,23,42,0.6);
+
+  border: 1px solid rgba(255,255,255,0.05);
+
+}
+
+
+
+/* LINK STYLE */
+
+.link {
+
+  color: #60a5fa;
+
+  word-break: break-all;
+
+}
+
+
+
+.link:hover {
+
+  text-decoration: underline;
+
+}
+
+
+
+/* CENTER HERO */
+
+.hero {
+
+  margin-top: 120px;
 
 }

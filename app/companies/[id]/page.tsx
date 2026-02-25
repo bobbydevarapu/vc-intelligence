@@ -16,7 +16,7 @@ export default function CompanyPage(){
 
   );
 
-  const [summary,setSummary] = useState("");
+  const [report,setReport] = useState<any>(null);
 
   const [loading,setLoading] = useState(false);
 
@@ -29,7 +29,9 @@ export default function CompanyPage(){
       method:"POST",
 
       headers:{
+
         "Content-Type":"application/json"
+
       },
 
       body: JSON.stringify({
@@ -42,7 +44,7 @@ export default function CompanyPage(){
 
     const data = await res.json();
 
-    setSummary(data.summary);
+    setReport(data);
 
     setLoading(false);
 
@@ -52,23 +54,23 @@ export default function CompanyPage(){
 
     <div className="container">
 
-      <h1 className="title">
+      <div className="title">
 
         {company?.name}
 
-      </h1>
+      </div>
 
-      <p style={{color:"#94a3b8"}}>
+      <div className="subtitle">
 
         {company?.website}
 
-      </p>
+      </div>
 
       <button
 
-        onClick={enrich}
-
         className="button"
+
+        onClick={enrich}
 
       >
 
@@ -82,7 +84,7 @@ export default function CompanyPage(){
 
           :
 
-          "Generate VC Intelligence"
+          "Generate VC Report"
 
         }
 
@@ -90,21 +92,79 @@ export default function CompanyPage(){
 
       {
 
-        summary &&
+        report &&
 
         <div className="card">
 
-          <h3>
+          <div className="card-title">
 
-            VC Insight
+            VC Intelligence Report
 
-          </h3>
+          </div>
 
-          <p>
+          <div className="field">
 
-            {summary}
+            <div className="label">
 
-          </p>
+              Company Name
+
+            </div>
+
+            <div className="value">
+
+              {report.companyName}
+
+            </div>
+
+          </div>
+
+          <div className="field">
+
+            <div className="label">
+
+              Website
+
+            </div>
+
+            <div className="value">
+
+              {report.website}
+
+            </div>
+
+          </div>
+
+          <div className="field">
+
+            <div className="label">
+
+              About Company
+
+            </div>
+
+            <div className="value">
+
+              {report.about}
+
+            </div>
+
+          </div>
+
+          <div className="field">
+
+            <div className="label">
+
+              VC Insight
+
+            </div>
+
+            <div className="value">
+
+              {report.insight}
+
+            </div>
+
+          </div>
 
         </div>
 
